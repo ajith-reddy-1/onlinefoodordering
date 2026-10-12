@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN chmod +x mvnw && ./mvnw -DskipTests package
+RUN chmod +x mvnw
+RUN ./mvnw -DskipTests package
 
 CMD ["sh", "-c", "java -Dserver.port=${PORT:-8081} -jar target/*.jar"]
